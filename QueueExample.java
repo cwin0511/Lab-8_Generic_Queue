@@ -1,22 +1,31 @@
-class MyQueue<T> {
+import java.util.LinkedList;
+
+class MyQueue<T> extends LinkedList<T> {
 
     public MyQueue() {
+        super();
     }
 
+    // 將元素加入佇列尾端
     public void enqueue(T item) {
+        super.addLast(item);
     }
 
+    // 從佇列頭部取出元素，若為空則回傳 null
     public T dequeue() {
-        return queue.first();
+        if (super.isEmpty()) return null;
+        return super.removeFirst();
     }
     
+    @Override
     public boolean isEmpty() {
-        return queue.isEmpty();
+        return super.isEmpty();
     }
 
     // 返回队列中的元素数量
+    @Override
     public int size() {
-        return queue.size();
+        return super.size();
     }
 }
 
